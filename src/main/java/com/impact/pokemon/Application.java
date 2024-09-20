@@ -11,7 +11,7 @@ import java.util.Map;
 public class Application {
 
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
-    private static final int PORT = 8080;
+    private static final int PORT = 8081;
 
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(Application.class);
@@ -19,6 +19,7 @@ public class Application {
                 "spring.main.log-startup-info", false,
                 "server.port", PORT));
         app.run(args);
+        logger.info("--------------------------");
         logger.info("Browse to: http://localhost:{}", PORT);
     }
 }

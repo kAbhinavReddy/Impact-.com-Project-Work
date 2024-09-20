@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,13 +9,24 @@
 </head>
 <body>
 <div id="app" class="section is-size-2">
-    <p>{{ pokemonName }} wins</p>
+<div>
+    PokemonA: <input id="pokemonA" v-model="pokemonA" />
+
+</div>
+<div>        PokemonB: <input id="pokemonB" v-model="pokemonB"  />
+</div>
+
+    <p v-if="pokemonName">{{ pokemonName }} wins</p>
     <p>
-        <button v-on:click="battle()">Battle!</button>
+        <p v-if="pokemonName">{{ pokemonName }}  pokemon has {{Points}} hit points.</p>
+
+
+        <button @click="battle()">Battle!</button>
     </p>
     <hr/>
-    <img class="sprite" v-bind:src="'https://img.pokemondb.net/sprites/home/normal/' + pokemonName.toLowerCase() + '.png'"/>
+    <img class="sprite" :src="'https://img.pokemondb.net/sprites/home/normal/' + pokemonName.toLowerCase() + '.png'" alt="Pokemon Img!"/>
 </div>
 <script src="app.js"></script>
+
 </body>
 </html>

@@ -16,8 +16,20 @@ public class PokemonData {
     private final File file;
 
     PokemonData() throws IOException {
-        file = new ClassPathResource("data/pokemon.csv").getFile();
+//
+//        file = new ClassPathResource("data/pokemon.csv").getFile();
+        File tempFile = null;
+        try {
+            tempFile = new ClassPathResource("data/pokemon.csv").getFile();
+        } catch (IOException e) {
+
+            System.err.println("Failed to load Pokemon data file: " + e.getMessage());
+            throw new RuntimeException("Could not load Pokemon data", e);
+        }
+        this.file = tempFile;
     }
+
+
 
     File getFile() {
         return file;
