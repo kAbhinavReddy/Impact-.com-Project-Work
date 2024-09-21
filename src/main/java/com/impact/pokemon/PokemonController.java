@@ -47,12 +47,17 @@ public class PokemonController {
         }
         logger.info("Calling AttactOperation()");
         String winner= AttactOperation(fPock,spock);
-
+        int winnerHitPoints;
+        if (winner.equals(fPock.getName())) {
+            winnerHitPoints = fPock.getHitPoints();
+        } else {
+            winnerHitPoints = spock.getHitPoints();
+        }
 
         // This is just an example of a response that is hardcoded - Change or refactor as needed
         return Map.of(
                 "winner", winner,
-                "hitPoints", spock.getHitPoints());
+                "hitPoints", winnerHitPoints);
     }
 
 
