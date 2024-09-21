@@ -99,7 +99,7 @@ public class PokemonController {
 
         return pokemonList.stream()
                 .filter(pokemonDetails -> pokemonDetails.getName().equalsIgnoreCase(pokemonName))
-                .findAny()
+                .findFirst()
                 .orElse(null);
 
     }
